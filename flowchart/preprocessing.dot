@@ -1,0 +1,18 @@
+digraph g {
+    label="Preprocessing workflow\n"
+    labelloc="t"
+    graph [fontname = "helvetica"];
+    node [fontname = "helvetica"];
+    edge [fontname = "helvetica", fontcolor=dimgray];
+
+    RNASeq
+    Bam
+    GTFTranscripts
+    GTFAnnotations
+    lincRNAs
+
+    RNASeq -> Bam [label="map (HiSat)"]
+    Bam -> GTFTranscripts [label="stringtie"]
+    GTFTranscripts -> GTFAnnotations [label="cuffcompare + genome annotation"]
+    GTFAnnotations -> lincRNAs [label="Evolinc"]
+}
