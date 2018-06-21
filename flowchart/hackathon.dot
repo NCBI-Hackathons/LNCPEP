@@ -1,0 +1,13 @@
+digraph g {
+    graph [fontname = "helvetica"];
+    node [fontname = "helvetica"];
+    edge [fontname = "helvetica", fontcolor=dimgray];
+
+    TrainingData
+    MLModel
+    Prediction
+    Validation
+
+    TrainingData -> MLModel -> Prediction -> Validation
+
+    }
