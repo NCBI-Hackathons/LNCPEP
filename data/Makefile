@@ -48,7 +48,8 @@ $(ALL_CHICKSPRESS_FILE): concat
 $(ALL_CHICKSPRESS_BED): $(ALL_CHICKSPRESS_FILE)
 	@echo ">>> Creating $(ALL_CHICKSPRESS_BED)"
 	@cat "$(ALL_CHICKSPRESS_FILE)" | awk '{FS = "\t";OFS = "\t" ;print $$5,$$6,$$7,$$0}' | tail -n +2 > $(ALL_CHICKSPRESS_BED).tmp ; \
-	Rscript --vanilla -e 'prot_df <- read.delim(file = "$(ALL_CHICKSPRESS_BED).tmp", header = FALSE, sep = "\\t"); names(prot_df)[1] <- c("Chrom"); conv_df <- read.delim(file = "ncbi_ens_chrs_mapping.out", header = TRUE, sep = "\\t"); write.table(x = merge(x = prot_df, y = conv_df, by.x = "Chrom", by.y = "Chr_Scaffold"), file = "$(ALL_CHICKSPRESS_BED)", sep = "\\t", row.names = FALSE, col.names = FALSE, quote = FALSE)' && rm -f $(ALL_CHICKSPRESS_BED).tmp
+	Rscript --vanilla -e 'prot_df <- read.delim(file = "$(ALL_CHICKSPRESS_BED).tmp", header = FALSE, sep = "\\t"); names(prot_df)[1] <- c("Chrom"); conv_df <- read.delim(file = "ncbi_ens_chrs_mapping.out", header = TRUE, sep = "\\t"); df <- merge(x = prot_df, y = conv_df, by.x = "Chrom", by.y = "Chr_Scaffold"); df[["Chrom"]] <- df[["NCBI_ACC"]]; write.table(x = df, file = "$(ALL_CHICKSPRESS_BED)", sep = "\\t", row.names = FALSE, col.names = FALSE, quote = FALSE)' && \
+	rm -f $(ALL_CHICKSPRESS_BED).tmp
 
 clean:
 	rm -rf chickspress
