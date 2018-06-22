@@ -10,12 +10,12 @@ update: ./nextflow
 	./nextflow self-update
 
 ref: install
-	./nextflow run ref.nf
+	./nextflow run ref.nf -profile ref
 .PHONY: ref
 
 # ~~~~~ RUN PIPELINE ~~~~~ #
 run: install
-	./nextflow run main.nf -resume -with-dag flowchart.dot $(EP)
+	./nextflow run main.nf -profile main -resume -with-dag flowchart.dot $(EP)
 
 flowchart:
 	[ -f flowchart.dot ] && dot flowchart.dot -Tpng -o flowchart.png
