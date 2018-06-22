@@ -9,5 +9,5 @@ Sourced from [Chickspress](http://geneatlas.arl.arizona.edu/cgi-bin/GeneAtlas/ch
 Generate files with the following command:
 
 ```
-make
+make -j4
 ```
