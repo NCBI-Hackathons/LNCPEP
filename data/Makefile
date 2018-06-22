@@ -15,7 +15,7 @@ ifneq ($(FINDRELABELED),)
 RELABELEDFILES:=$(shell find $(RELABELDIR) -type f -name '*.tmp')
 endif
 
-all: $(ALL_CHICKSPRESS_BED)
+all: $(ALL_CHICKSPRESS_BED) split-tsv split-bed
 
 chickspress:
 	unzip "$(ZIP)"
@@ -40,8 +40,7 @@ concat: relabel
 
 concat-recurse:
 	@echo ">>> Creating $(ALL_CHICKSPRESS_FILE)"
-	@../scripts/concat-tables.py $(RELABELEDFILES) -o "$(ALL_CHICKSPRESS_FILE)"
-.PHONY: $(RELABELEDFILES)
+	@../scripts/concat-tables.py $(RELABELEDFILES) > "$(ALL_CHICKSPRESS_FILE)"
 
 $(ALL_CHICKSPRESS_FILE): concat
 
@@ -51,7 +50,44 @@ $(ALL_CHICKSPRESS_BED): $(ALL_CHICKSPRESS_FILE)
 	Rscript --vanilla -e 'prot_df <- read.delim(file = "$(ALL_CHICKSPRESS_BED).tmp", header = FALSE, sep = "\\t"); names(prot_df)[1] <- c("Chrom"); conv_df <- read.delim(file = "ncbi_ens_chrs_mapping.out", header = TRUE, sep = "\\t"); df <- merge(x = prot_df, y = conv_df, by.x = "Chrom", by.y = "Chr_Scaffold"); df[["Chrom"]] <- df[["NCBI_ACC"]]; write.table(x = df, file = "$(ALL_CHICKSPRESS_BED)", sep = "\\t", row.names = FALSE, col.names = FALSE, quote = FALSE)' && \
 	rm -f $(ALL_CHICKSPRESS_BED).tmp
 
+
+SPLIT_DIR:=split
+TSV_TISSUES:=
+GET_TSV_TISSUES:=
+ifneq ($(GET_TSV_TISSUES),)
+TSV_TISSUES:=$(shell cut -f12 $(ALL_CHICKSPRESS_FILE) | sort -u | tr -d '\r' | sed -e 's|$$|.tsv|' -e 's|^|$(SPLIT_DIR)/|')
+endif
+
+BED_TISSUES:=
+GET_BED_TISSUES:=
+ifneq ($(GET_BED_TISSUES),)
+BED_TISSUES:=$(shell cut -f15 $(ALL_CHICKSPRESS_BED) | sort -u | tr -d '\r' | sed -e 's|$$|.bed|' -e 's|^|$(SPLIT_DIR)/|')
+endif
+
+split-tsv: $(ALL_CHICKSPRESS_FILE)
+	@$(MAKE) split-tsv-recurse GET_TSV_TISSUES=1
+split-tsv-recurse: $(TSV_TISSUES)
+
+$(TSV_TISSUES):
+	@mkdir -p "$(SPLIT_DIR)" ; \
+	output_file="$@" ; \
+	pattern="$$(basename "$${output_file}" | sed -e 's|.tsv||')" ; \
+	echo ">>> Making $${output_file} for pattern $${pattern}" ; \
+	head -1 "$(ALL_CHICKSPRESS_FILE)" > "$${output_file}" ; \
+	grep -w "$${pattern}" "$(ALL_CHICKSPRESS_FILE)" >> "$${output_file}"
+
+split-bed: $(ALL_CHICKSPRESS_BED)
+	@$(MAKE) split-bed-recurse GET_BED_TISSUES=1
+split-bed-recurse: $(BED_TISSUES)
+$(BED_TISSUES):
+	@mkdir -p "$(SPLIT_DIR)" ; \
+	output_file="$@" ; \
+	pattern="$$(basename "$${output_file}" | sed -e 's|.bed||')" ; \
+	echo ">>> Making $${output_file} for pattern $${pattern}" ; \
+	grep -w "$${pattern}" "$(ALL_CHICKSPRESS_BED)" >> "$${output_file}"
+
 clean:
 	rm -rf chickspress
 	rm -rf "$(RELABELDIR)"
 	rm -f "$(ALL_CHICKSPRESS_FILE)" "$(ALL_CHICKSPRESS_BED)"
+	rm -rf "$(SPLIT_DIR)"
