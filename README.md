@@ -47,7 +47,7 @@ The Docker image contains <this software> as well as a webserver and FTP server 
 3. `sh server/<this software>.sh` to test
 4. Add cron job as required (to execute <this software>.sh script)
 
-### Configuration
+### Configuration and dependencies
 
 ```Examples here```
 
