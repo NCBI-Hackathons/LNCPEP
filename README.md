@@ -1,5 +1,5 @@
 # ncRNA_ML_Features
-A machine learning approach to identify long noncoding RNAs that encode small Open Reading Frames, or ORFs.
+A machine learning approach to identify  long noncoding RNAs that has a potential to encode micropeptides.
 
 ## Please cite our work -- here is the ICMJE Standard Citation:
 
@@ -8,8 +8,8 @@ A machine learning approach to identify long noncoding RNAs that encode small Op
 ## Awesome Logo
 
 
-# What is <this software>?
-We applied machine learning (ML) algorithms on publically available matched RNA-seq and mass spectrometry data on chicken to identify TUCPs from lncRNAs. 
+# What does this software do?
+We applied machine learning (ML) algorithms on publically available chickpress dataset (http://geneatlas.arl.arizona.edu/) matched RNA-seq and mass spectrometry data on chicken to identify TUCPs from lncRNAs. 
 
 Overview Diagram
 
