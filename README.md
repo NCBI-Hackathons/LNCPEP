@@ -1,5 +1,5 @@
 # ncRNA_ML_Features
-A machine learning approach to detect noncoding RNAs that encode TUCP's
+A machine learning approach to identify  long noncoding RNAs that has a potential to encode micropeptides.
 
 ## Please cite our work -- here is the ICMJE Standard Citation:
 
@@ -7,17 +7,9 @@ A machine learning approach to detect noncoding RNAs that encode TUCP's
 
 ## Awesome Logo
 
-### You can make a free DOI with zenodo <link>
 
-## Website (if applicable)
-
-## Intro statement
-
-## What's the problem?
-
-## Why should we solve it?
-
-# What is <this software>?
+# What does this software do?
+We applied machine learning (ML) algorithms on publically available chickpress dataset (http://geneatlas.arl.arizona.edu/) matched RNA-seq and mass spectrometry data on chicken to identify TUCPs from lncRNAs. 
 
 Overview Diagram
 
@@ -47,7 +39,7 @@ The Docker image contains <this software> as well as a webserver and FTP server 
 3. `sh server/<this software>.sh` to test
 4. Add cron job as required (to execute <this software>.sh script)
 
-### Configuration
+### Configuration and dependencies
 
 ```Examples here```
 
@@ -56,6 +48,18 @@ The Docker image contains <this software> as well as a webserver and FTP server 
 We tested four different tools with <this software>. They can be found in [server/tools/](server/tools/) .
 
 # Additional Functionality
+
+## What's the problem?
+Proteins have been long considered as the ‘workforce’ for biological systems. Due to the variety in chemical properties of the building blocks of proteins, known as amino acids, proteins are capable of performing a diverse range of functions such as enzymatic activity, signalling molecules, structural blocks that hold cells and tissues together, and many more. Despite their central role, the information on DNA that codes for proteins usually represent a small fraction of the genome of higher organisms. For example, the protein-coding genes represent only 2% of the human genome ; the rest was regarded as ‘junk’ and largely neglected . 
+
+Recent advances in sequencing technologies have revealed that the ‘junk’ DNA, despite being non-protein coding, was transcribed at high levels, representing majority of the intracellular RNA pool. A recent survey found that at least 75% of the human genome was transcribed in at least one cell type (ENCODE Project Consortium 2012). Although some investigators argued that this pervasive transcription could be simply transcriptional noise, classical biochemical studies have firmly established biological roles of a small number of noncoding RNAs, such as ribosomal and transfer RNA in protein synthesis, telomerase RNA in protecting chromosomal ends during mitosis and Xist in X-chromosome inactivation in mammalian females (Rinn and Chang 2012). Thus, a broader role of noncoding RNAs in physiology is an intense area of research. 
+
+Noncoding RNAs are broadly classified into two categories based on their size: small (<200 nucleotides) and long noncoding RNAs (lncRNAs; >200 nucleotides). While not being fully translated, some lncRNAs do contain short open reading frames that are translated into peptides. In fact, a recent study identified a micropeptide of 46 amino acids (aa) that originated from a lncRNA, was evolutionary conserved between human and mouse and found to regulate muscle physiology via calcium signalling (Anderson et al. 2015). Besides human and mouse, micropeptides are also detected in fruit fly (Pueyo and Couso 2008) and chicken (Cai et al. 2017). 
+
+## Why should we solve it?
+Functional role of micropeptides raises an important question: are lncRNAs just protein-coding genes that defy traditional concepts of a being protein, such as being at least 100 aa in length and evolutionary conservation, that were used in early computational analyses? A revised analyses of 25 independent studies identified ~3,500 transcripts of unknown coding potential (TUCPs) in human and some of these were indeed translated and detected in proteomic studies (Iyer et al. 2015). Thus, identifying lncRNAs that are TUCPs 
+
+
 
 ### DockerFile
 
