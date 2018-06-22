@@ -2,14 +2,9 @@
 A machine learning approach to identify  long noncoding RNAs that has a potential to encode micropeptides.
 
 # Optional things
-- ere
-- dfd
-### Please cite our work -- here is the ICMJE Standard Citation:
-
-### ...and a link to the DOI:
-
-### Awesome Logo
-
+- Please cite our work -- here is the ICMJE Standard Citation:
+- ...and a link to the DOI:
+- Awesome Logo
 
 # What does this software do?
 This software calculates probability of an RNA sequence coding micropeptides (<50 amino acids).
@@ -20,7 +15,7 @@ Machine learning (ML) algorithms on publically available chickpress dataset (htt
 
 Overview Diagram
 
-# How to use <this software>
+# How to use this software
 
 # Software Workflow Diagram
 
@@ -55,6 +50,8 @@ The Docker image contains <this software> as well as a webserver and FTP server 
 We tested four different tools with <this software>. They can be found in [server/tools/](server/tools/) .
 
 # Additional Functionality
+
+---------
 
 ## What's the problem?
 Proteins have been long considered as the ‘workforce’ for biological systems. Due to the variety in chemical properties of the building blocks of proteins, known as amino acids, proteins are capable of performing a diverse range of functions such as enzymatic activity, signalling molecules, structural blocks that hold cells and tissues together, and many more. Despite their central role, the information on DNA that codes for proteins usually represent a small fraction of the genome of higher organisms. For example, the protein-coding genes represent only 2% of the human genome ; the rest was regarded as ‘junk’ and largely neglected . 
