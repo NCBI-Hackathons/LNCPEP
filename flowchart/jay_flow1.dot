@@ -1,0 +1,45 @@
+digraph g {
+    label=""
+    labelloc="t"
+    graph [fontname = "helvetica"];
+    node [fontname = "helvetica"];
+    edge [fontname = "helvetica", fontcolor=dimgray];
+
+    graph [fontname = "helvetica"];
+    node [fontname = "helvetica"];
+    edge [fontname = "helvetica", fontcolor=dimgray];
+
+    Chicken_Tissues
+    RNAseq
+    Protein_MS
+    alignment
+    gtf
+    annotated_gtf
+    filter_gtf
+    putative_lncRNAs
+    lncRNAs
+    Map_Proteins
+    Conversion_2_Bed
+    Bed_files
+
+
+    Chicken_Tissues -> RNAseq
+    RNAseq -> alignment [label="map (HiSat2, v5.0)"]
+    alignment -> gtf [label ="stringtie"]
+    gtf -> annotated_gtf  [label ="cuffcompare, 10 class codes"]
+    annotated_gtf-> filter_gtf [label ="keep class codes: u, i, o and x"]
+    filter_gtf -> putative_lncRNAs [label ="keep long transcripts, >200 bp"]
+    putative_lncRNAs -> lncRNAs [label ="Trash known proteins"]
+    lncRNAs
+
+    Chicken_Tissues -> Protein_MS
+    Protein_MS -> Map_Proteins
+    Map_Proteins -> Conversion_2_Bed [label ="Custom Script"]
+    Conversion_2_Bed -> Bed_files [label ="Custom Script"]
+
+    Bed_files -> lncRNAs [label ="Overlap"]
+
+
+
+
+    }
