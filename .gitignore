@@ -11,3 +11,12 @@ data/split/
 old
 data/chickspress.bed
 data/chickspress.tsv
+.nextflow.log
+.nextflow.log*
+.nextflow
+nextflow
+*.fasta
+*.gff
+flowchart.dot
+work*
+test.nf
