@@ -4,3 +4,10 @@
 .Ruserdata
 *.Rproj
 data/yy1alh1529605932.tsv
+.DS_Store
+data/chickspress/
+data/relabeled/
+data/split/
+old
+data/chickspress.bed
+data/chickspress.tsv
