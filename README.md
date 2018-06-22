@@ -1,5 +1,5 @@
 # ncRNA_ML_Features
-A machine learning approach to detect noncoding RNAs that encode TUCP's
+A machine learning approach to identify  long noncoding RNAs that encode Transcripts of Unknown Coding Potential (TUCPs).
 
 ## Please cite our work -- here is the ICMJE Standard Citation:
 
