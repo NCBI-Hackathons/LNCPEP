@@ -9,7 +9,11 @@ A machine learning approach to identify  long noncoding RNAs that has a potentia
 
 
 # What does this software do?
-We applied machine learning (ML) algorithms on publically available chickpress dataset (http://geneatlas.arl.arizona.edu/) matched RNA-seq and mass spectrometry data on chicken to identify TUCPs from lncRNAs. 
+This software calculates probability of an RNA sequence coding micropeptides (<50 amino acids).
+
+First, we consolidated RNA-seq from 13 tissues into one bam file, removed 
+
+Machine learning (ML) algorithms on publically available chickpress dataset (http://geneatlas.arl.arizona.edu/) that contains RNA-seq and mass spectrometry from 13 chicken tissues. 
 
 Overview Diagram
 
