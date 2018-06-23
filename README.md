@@ -27,10 +27,30 @@ Identification of lncRNAs that produce micropeptides will have several advantage
 - ...and a link to the DOI:
 - Awesome Logo
 
-
 ## Sequence featurization
 
 Non-overlapping subsequences of 100 nt covering the entire length of a lncRNA were featurized using a set of *k*’s to generate *k*-mers (*k* = 2, 3 and 4). For each subsequence, the *k*-mer usage frequencies for each value of *k* was computed, but  the unused *k*-mers, i.e. with frequency = 0, were also included in the vector to ensure equal length outputs. Finally, the *k*-mer usage frequency vector was concatenated into a single vector representing the subsequences.
+
+# Methods
+## Software Workflow Diagram
+_*Following might have changed*_
+
+![''](https://github.com/NCBI-Hackathons/ncRNA_ML_Features/blob/master/flowchart/jay_flow1.png)
+
+## Software Setup
+
+Build Docker containers
+
+```
+make build VAR=preprocessing
+make build VAR=main
+```
+
+## Software Requirements
+
+- Docker (to run included containers)
+
+- Java 8 (for Nextflow pipelines)
 
 # References & Resources
 (in alphabetical order; see gSheets for sorting etc, then paste in the end)
