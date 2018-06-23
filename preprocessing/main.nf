@@ -9,9 +9,13 @@ params.blast_index_basename = "blast.uniprot-chicken"
 Channel.fromPath(params.refFasta).set { refFasta }
 Channel.fromPath(params.refAnno).set { refAnno }
 Channel.fromPath(params.proteomeFastaGz).set { proteomeFastaGz }
+
+// // if using included sra.tsv file
 // Channel.fromPath(params.sraFile)
 //         .splitCsv(sep: '\t') // [SRR924485, male, adipose]
 //         .set { sra_samples }
+
+// // hard-code in some example SRA entries for demo purposes
 Channel.from([
     ["SRR924485", "male", "adipose"],
     ["SRR924539", "female", "adipose"]
