@@ -34,7 +34,7 @@ Input file with coordinates/sequences of putative lncRNA transcripts to search f
 
 ## Software Workflow Diagram
 ![''](https://github.com/NCBI-Hackathons/ncRNA_ML_Features/blob/master/flowchart/overview1.png)
-![''](https://github.com/NCBI-Hackathons/ncRNA_ML_Features/blob/master/flowchart/training1.png)
+![''](https://github.com/NCBI-Hackathons/ncRNA_ML_Features/blob/master/flowchart/training_ML1.png)
 
 ## Software Setup
 
