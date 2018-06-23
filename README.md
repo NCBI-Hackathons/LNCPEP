@@ -87,10 +87,15 @@ There is also a Docker image for hosting the main website. This should only be u
   4. `docker run -t -i <this software>/website`
 
 # References & Resources
-(in alphabetical order; see gSheets for sorting etc)
+(in alphabetical order; see gSheets for sorting etc, then paste in the end)
 https://docs.google.com/spreadsheets/d/1aqINk-C1tgVPTUMGZFKQanBXSp_GVIyM7hxrdhtBeMI/edit?usp=sharing
 
-- [Evolinc: A Tool for the Identification and Evolutionary Comparison of Long Intergenic Non-coding RNAs](https://www.frontiersin.org/articles/10.3389/fgene.2017.00052/full)
-- [CPC2: a fast and accurate coding potential calculator based on sequence intrinsic features](https://academic.oup.com/nar/article/45/W1/W12/3831091)
 
+- [Anderson et al. 2015](http://science.sciencemag.org/content/351/6270/271)
+- [chickpress dataset on the University of Arizona, USA](http://geneatlas.arl.arizona.edu/)
+- [CPC2: a fast and accurate coding potential calculator based on sequence intrinsic features](https://academic.oup.com/nar/article/45/W1/W12/3831091)
+- [ENCODE Project Consortium 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3439153/)
 - [Evolinc: A Tool for the Identification and Evolutionary Comparison of Long Intergenic Non-coding RNAs](https://www.frontiersin.org/articles/10.3389/fgene.2017.00052/full)
+- [Iyer et al. 2015](https://doi.org/10.1038/ng.3192)
+- [Pueyo and Couso 2008](https://www.sciencedirect.com/science/article/pii/S0012160608011597?via%3Dihub)
+- [Rinn and Chang 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3858397/)
