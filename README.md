@@ -3,9 +3,9 @@
 [other suggestions: TU-CuP LiNC, sounds similar to bioinfo utility cufflinks]
 'TUCPa LINCer' is a machine learning approach to identify  long noncoding RNAs that has a potential to encode micropeptides. 
 
-Long noncoding RNAs (lncRNAs) are RNAs of at least 200 nucleotides in length produced from the parts of the DNA that traditionally do not make proteins. While not being fully translated, some lncRNAs do contain short open reading frames and are translated into short peptides known as micropeptides. Due to their short size, micropeptides remained largely undetected in earlier computational analyses. However, a micropeptide as short as 11 amino acids, named torsal-less, was found was found to impact leg development in fruit fly. Additionally, functionally relevant micropeptides have been discovered in human, mouse and chicken. These recent findings raise an important question: are lncRNAs just protein-coding genes that defy traditional concepts of a being protein, such as being at least 100 amino acids in length and evolutionary conservation, that were used in early computational analyses? 
+Long noncoding RNAs (lncRNAs) are RNAs of at least 200 nucleotides in length produced from the parts of the DNA that traditionally do not make proteins. Despite being nonprotein-coding, a small number of well-studied lncRNAs have been proven to be essential for life, including the ribosomal RNA for protein synthesis, telomerase RNA in protecting chromosomal ends during mitosis and *Xist* in X-chromosome inactivation in mammalian females (Rinn and Chang 2012). Recently, few lncRNAs  demonstrated some capabilities to synthesis short peptides known as micropeptides. Due to their short size, micropeptides remained largely undetected in earlier computational analyses. However, a micropeptide as short as 11 amino acids, named torsal-less, was found was found to impact leg development in fruit fly. Additionally, functionally relevant micropeptides have been discovered in human, mouse and chicken. These recent findings raise an important question: are lncRNAs just protein-coding genes that defy traditional concepts of a being protein, such as being at least 100 amino acids in length and evolutionary conservation, that were used in early computational analyses? 
 
-Here, we aim to identify micropeptides from 'omic' datasets using using machine learning (ML). We trained the ML algorithms on the publically available 'chickpress' dataset (http://geneatlas.arl.arizona.edu/) that contains RNA-seq and mass spectrometry data from 13 matched, chicken male and female tissues. To emphasize on discovery of novel micropeptides, we excluded RNA that map to known proteins in chicken, and trained ML on the remaining proteins that were predicted to be less than _**XX**_ amino acids in size to identity features of the cognate RNA sequence that might result into protein synthesis. 
+Here, we aim to identify micropeptides from 'omic' datasets using using machine learning (ML). We trained the ML algorithms on the publically available 'chickpress' dataset (http://geneatlas.arl.arizona.edu/) that contains RNA-seq as well as mass spectrometry (MS) data from 13 matched, chicken male and female tissues. To emphasize on discovery of novel micropeptides, we excluded RNA that map to known proteins in chicken, and trained ML on the remaining proteins that were predicted to be less than _**XX**_ amino acids in size to identity features of the cognate RNA sequence that might result into protein synthesis. 
 
 # Optional things
 - Please cite our work -- here is the ICMJE Standard Citation:
@@ -14,15 +14,18 @@ Here, we aim to identify micropeptides from 'omic' datasets using using machine 
 
 # How to use this software
 _*To be filled by computer wizards*_
-# Software Workflow Diagram
+
+# Methods
+## Software Workflow Diagram
 _*Following might have changed*_
+
 ![''](https://github.com/NCBI-Hackathons/ncRNA_ML_Features/blob/master/flowchart/jay_flow1.png)
 
 
-# File structure diagram
+## File structure diagram
 #### _Define paths, variable names, etc_
 
-# Installation options:
+## Installation options:
 
 We provide two options for installing <this software>: Docker or directly from Github.
 
@@ -45,7 +48,7 @@ The Docker image contains <this software> as well as a webserver and FTP server 
 
 ```Examples here```
 
-# Testing
+## Testing
 
 We tested four different tools with <this software>. They can be found in [server/tools/](server/tools/) .
 
