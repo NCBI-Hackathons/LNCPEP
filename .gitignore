@@ -25,3 +25,6 @@ preprocessing/bin/
 preprocessing/flowchart.dot*
 preprocessing/trace.txt
 preprocessing/output/
+preprocessing/trace.txt*
+preprocessing/timeline-report.html*
+preprocessing/nextflow-report.html*

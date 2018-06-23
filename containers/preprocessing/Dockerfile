@@ -24,5 +24,6 @@ sra-tools==2.9.0 \
 hisat2==2.0.5 \
 samtools==1.3.1 \
 stringtie==1.2.4 \
-sambamba==0.6.6
+sambamba==0.6.6 \
+cufflinks==2.2.1
 
