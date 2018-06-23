@@ -32,7 +32,7 @@ Input file with coordinates/sequences of putative lncRNA transcripts to search f
 
 ## Sample Result
 
-<img width="380" alt="orf_overlay" src="overlay_orfs.png">
+<img width="580" alt="orf_overlay" src="overlay_orfs.png">
 
 ## Software Setup
 
