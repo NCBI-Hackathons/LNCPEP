@@ -24,6 +24,9 @@ $(CONDA_INSTALL_DIR): dl
 
 # install conda in the current directory and install the conda-build package to it
 install: $(CONDA_INSTALL_DIR)
+	if [ "$$( module > /dev/null 2>&1; echo $$?)" -eq 0 ]; then module unload python; fi ; \
+	if [ ! -z ${PYTHONPATH+x} ]; then unset PYTHONPATH; fi ; \
+	if [ ! -z ${PYTHONHOME+x} ]; then unset PYTHONHOME; fi ; \
 	source "$(CONDA_ACTIVATE)" && \
 	conda install -y conda-build && \
 	conda config --add channels defaults && \
@@ -39,9 +42,15 @@ check:
 
 # standard env build methods
 env: check
+	if [ "$$( module > /dev/null 2>&1; echo $$?)" -eq 0 ]; then module unload python; fi ; \
+	if [ ! -z ${PYTHONPATH+x} ]; then unset PYTHONPATH; fi ; \
+	if [ ! -z ${PYTHONHOME+x} ]; then unset PYTHONHOME; fi ; \
 	source "$(CONDA_ACTIVATE)" && \
 	conda env create --file "$(VAR)/env.yml" --name "$(VAR)"
 
 remove:
+	if [ "$$( module > /dev/null 2>&1; echo $$?)" -eq 0 ]; then module unload python; fi ; \
+	if [ ! -z ${PYTHONPATH+x} ]; then unset PYTHONPATH; fi ; \
+	if [ ! -z ${PYTHONHOME+x} ]; then unset PYTHONHOME; fi ; \
 	source "$(CONDA_ACTIVATE)" && \
 	conda env remove -n "$(VAR)"
