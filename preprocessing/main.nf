@@ -79,11 +79,11 @@ process align {
     prefix = "${sraID}.${tissue}.${sex}"
     output_bam = "${prefix}.bam"
     """
-    echo "threads: \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}}"
+    echo "threads: \${NSLOTS:-\${threadsBig:-\${NTHREADS:-1}}}"
 
     hisat2 -x ${ref_fasta} \
     --sra-acc ${sraID} \
-    -p \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}} | \
+    -p \${NSLOTS:-\${threadsBig:-\${NTHREADS:-1}}} | \
     samtools view -Sbo ${output_bam} -
     """
 }
@@ -216,6 +216,9 @@ process query {
     input:
     set val(sraID), val(sex), val(tissue), file(fasta), file(blast_indexes: "*") from filtered_fastas.combine(blast_index_list)
 
+    output:
+    set val(sraID), val(sex), val(tissue), file(fasta), file("${output_blast}") into query_outputs
+
     script:
     prefix = "${sraID}.${tissue}.${sex}"
     output_blast = "${prefix}.blast.genes.txt"
@@ -224,18 +227,29 @@ process query {
 
     blastx -query "${fasta}" -db "${params.blast_index_basename}" -outfmt 6 -max_target_seqs 1 -out "${output_blast}" -num_threads \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}}
     """
-    // blastx -query "${new}".putative_genes.fa -db uniprot-chicken -outfmt 6 -max_target_seqs 1 -out "${new}".putative_genes.txt -num_threads 10
 }
 
 
-// bedtools intersect -wa -c -a SRR924202.bed -b chickspress_peptides.bed > srr924202_new_screen_intersect.txt
+
+// getting unique IDs from BLAST output
 // cut -f 1 SRR924485.putative_genes.txt | sort | uniq > SRR924485.putative_genes.txt.uniq.genes
+
+// getting unqiue IDs from filtered transcript fasta
 // grep ">" SRR924485.putative_genes.fa | sed 's/>//g' | sort | uniq > SRR924485.putative_genes.fa.genes
+
+// find BLAST output IDs that are not present in the filtered transcript fasta IDs
 // diff SRR924485.putative_genes.txt.uniq.genes SRR924485.putative_genes.fa.genes | grep ">" | sed 's/>//g' | sed 's/ //g' | sort | uniq > SRR924485.diff.genes
+
+// get entries from filtered transcript .gtf
 // grep -f SRR924485.diff.genes SRR924485.combined.gtf > SRR924485.combined.lincs.gtf
+
+
 // cut -f 1 SRR924539.putative_genes.txt | sort | uniq > SRR924539.putative_genes.txt.uniq.genes
 // grep ">" SRR924539.putative_genes.fa | sed 's/>//g' | sort | uniq > SRR924539.putative_genes.fa.genes
 // diff SRR924539.putative_genes.txt.uniq.genes SRR924539.putative_genes.fa.genes | grep ">" | sed 's/>//g' | sed 's/ //g' | sort | uniq > SRR924539.diff.genes
 // grep -f SRR924539.diff.genes SRR924539.combined.gtf > SRR924539.combined.lincs.gtf
 // cat SRR924485.combined.lincs.gtf SRR924539.combined.lincs.gtf > Adipose_linc.gtf
 // gtf2bed < Adipose_linc.gtf > Adipose_linc.bed
+
+
+// bedtools intersect -wa -c -a SRR924202.bed -b chickspress_peptides.bed > srr924202_new_screen_intersect.txt
