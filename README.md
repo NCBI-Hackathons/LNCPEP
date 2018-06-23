@@ -29,7 +29,7 @@ Non-overlapping subsequences of 100 nt covering the entire length of a lncRNA we
 Training data can be (re)generated with the included Fastlnc pipeline (`preprocessing` directory).
 ![''](https://github.com/NCBI-Hackathons/ncRNA_ML_Features/blob/master/flowchart/overview1.png)
 
-## Pre-trained Model
+## Model Training
 Input file with coordinates/sequences of putative lncRNA transcripts to search for TUCP's/micropeptides.
 ![''](https://github.com/NCBI-Hackathons/ncRNA_ML_Features/blob/master/flowchart/training_ML1.png)
 
