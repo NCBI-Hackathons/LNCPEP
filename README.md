@@ -1,8 +1,10 @@
 # LNCPEP:
 
-LNCPEP is a machine learning approach to identify long noncoding RNAs that encode micropeptides.
-<img width="380" alt="lncpepe_logo" src="https://user-images.githubusercontent.com/1639442/41813682-e0dd0fa2-76f7-11e8-83a2-5d81cefab59e.png">
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/1639442/41813682-e0dd0fa2-76f7-11e8-83a2-5d81cefab59e.png" width = 405 height = 300>
+</p>
 
+**LNCPEP is a machine learning approach to identify long noncoding RNAs that encode micropeptides.**
 
 ## Abstract
 Long noncoding RNAs (lncRNAs) are a diverse class of RNAs that have a length of at least 200 nucleotides, and although transcribed from DNA, they are not translated into proteins (or lack an open reading frame of >100 amino acids). Several lncRNAs have been proven to be essential for life, including the ribosomal RNA for protein synthesis, the telomerase RNA in protecting chromosomal ends during mitosis and *Xist* in X-chromosome inactivation in mammalian females. Although categorized as non-protein coding, recent studies have demonstrated that small peptides, known as micropeptides, can be concealed within lncRNA transcripts. LncRNAs containing these micropeptides have been described as Transcripts of Uncertain Coding Potential (TUCP). These micropeptides remained largely undetected in earlier computational analyses due to their short size and non-cononical start sites. However, a micropeptide as short as 11 amino acids, named **torsal-less**, was found to be important for leg development in fruit fly. Additionally, functionally relevant micropeptides have been discovered in human, mouse and chicken. These recent findings raise an important question: are lncRNAs just protein-coding genes that defy traditional concepts of a being protein, such as being at least 100 amino acids in length and evolutionary conservation, that were used in early computational analyses? Here, in this work we aim to identify micropeptides from 'omic' datasets using using a Machine Learning (ML) approach. We have extensively profiled the lncRNA transcriptome in 13 matched, chicken male and female tissues for which RNA-Seq data and protein data is publicaly available using two different pipelines - RMTA () and Evolinc (Ref) and RMTA and a modified EvoTuc (). To emphasize on the discovery of novel micropeptides, we trained the ML algorithm on the publically available 'chickpress' dataset (http://geneatlas.arl.arizona.edu/) that contains mass spectrometry (MS) data and we excluded RNAs that map to known proteins in chicken, and trained ML algorithm on the proteins that overalap with the lncRNAs detected from RNASeq dataset.
@@ -29,6 +31,10 @@ Training data can be (re)generated with the included Fastlnc pipeline (`preproce
 ## Model Training
 Input file with coordinates/sequences of putative lncRNA transcripts to search for TUCP's/micropeptides.
 ![''](https://github.com/NCBI-Hackathons/ncRNA_ML_Features/blob/master/flowchart/training_ML1.png)
+
+## Sample Result
+
+<img width="580" alt="orf_overlay" src="orf_overlay_2.png">
 
 ## Software Setup
 
