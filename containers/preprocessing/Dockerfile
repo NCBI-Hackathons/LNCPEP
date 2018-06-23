@@ -27,5 +27,7 @@ stringtie==1.2.4 \
 sambamba==0.6.6 \
 cufflinks==2.2.1 \
 biopython==1.71 \
-blast==2.7.1
+blast==2.7.1 \
+bedops==2.4.35 \
+bedtools==2.27.1
 

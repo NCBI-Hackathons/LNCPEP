@@ -26,9 +26,3 @@ scikit-learn==0.19.1 \
 xgboost==0.72 \
 numpy==1.14.2
 
-# python 3.6.3
-# conda 4.5.0
-# biopython==1.68
-# scikit-learn==0.19.1
-# xgboost==0.72
-# numpy==1.14.2
