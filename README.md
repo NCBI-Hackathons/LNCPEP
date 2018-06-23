@@ -41,8 +41,17 @@ Input file with coordinates/sequences of putative lncRNA transcripts to search f
 Build Docker containers
 
 ```
+cd containers
 make build VAR=preprocessing
 make build VAR=main
+```
+Or set up conda environments
+
+```
+cd conda
+make install
+make env VAR=preprocessing
+make env VAR=main
 ```
 
 ## Software Requirements
