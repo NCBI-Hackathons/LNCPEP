@@ -29,3 +29,4 @@ preprocessing/trace.txt*
 preprocessing/timeline-report.html*
 preprocessing/nextflow-report.html*
 preprocessing/test/
+conda/Miniconda3-4.4.10-Linux-x86_64.sh
