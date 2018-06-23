@@ -12,13 +12,10 @@ Here, we aim to identify micropeptides from 'omic' datasets using using machine 
 - ...and a link to the DOI:
 - Awesome Logo
 
-
-
-Overview Diagram
-
 # How to use this software
-
+_*To be filled by computer wizards*_
 # Software Workflow Diagram
+![alt text](flowcharts/jay_flow1.png)
 
 # File structure diagram
 #### _Define paths, variable names, etc_
