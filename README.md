@@ -1,4 +1,4 @@
-# TUPaC-lncur:
+# TUCP-LNCer:
 
 [other suggestions: TU-CuP LiNC, sounds similar to bioinfo utility cufflinks]
 'TUCP-LNCer' is a machine learning approach to identify long noncoding RNAs that encode micropeptides.
