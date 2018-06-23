@@ -33,9 +33,8 @@ Training data can be (re)generated with the included Fastlnc pipeline (`preproce
 Input file with coordinates/sequences of putative lncRNA transcripts to search for TUCP's/micropeptides.
 
 ## Software Workflow Diagram
-_*subject to change during development*_
-
 ![''](https://github.com/NCBI-Hackathons/ncRNA_ML_Features/blob/master/flowchart/overview1.png)
+![''](https://github.com/NCBI-Hackathons/ncRNA_ML_Features/blob/master/flowchart/training1.png)
 
 ## Software Setup
 
