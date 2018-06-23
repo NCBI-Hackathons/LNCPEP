@@ -143,7 +143,7 @@ process filter {
     set val(sraID), val(sex), val(tissue), file(gtf) from assembled
 
     output:
-    set val(sraID), val(sex), val(tissue), file("${output_gtf}") into filtered_gtfs
+    set val(sraID), val(sex), val(tissue), file("${output_gtf}") into (filtered_gtfs, filtered_gtfs2)
 
     script:
     prefix = "${sraID}.${tissue}.${sex}"
@@ -227,13 +227,15 @@ process query {
     prefix = "${sraID}.${tissue}.${sex}"
     output_blast = "${prefix}.blast.genes.txt"
     """
-    echo "threads: \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}}"
+    echo "threads: \${NSLOTS:-\${threadsBig:-\${NTHREADS:-1}}}"
 
-    blastx -query "${fasta}" -db "${params.blast_index_basename}" -outfmt 6 -max_target_seqs 1 -out "${output_blast}" -num_threads \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}}
+    blastx -query "${fasta}" -db "${params.blast_index_basename}" -outfmt 6 -max_target_seqs 1 -out "${output_blast}" -num_threads \${NSLOTS:-\${threadsBig:-\${NTHREADS:-1}}}
     """
 }
 
+query_outputs.combine(filtered_gtfs2, by: [0, 1, 2]).subscribe { println "[query_outputs] ${it}" }
 
+// filtered_gtfs2
 
 // getting unique IDs from BLAST output
 // cut -f 1 SRR924485.putative_genes.txt | sort | uniq > SRR924485.putative_genes.txt.uniq.genes
