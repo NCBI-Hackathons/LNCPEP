@@ -12,7 +12,7 @@ _*Following might have changed*_
 
 ## Create Training Data & Train Model
 
-Training data can be re-generated with the included Fastlnc pipeline (`preprocessing`).
+Training data can be (re)generated with the included Fastlnc pipeline (`preprocessing` directory). 
 
 ## Pre-trained Model
 
