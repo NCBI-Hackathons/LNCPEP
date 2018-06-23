@@ -1,0 +1,44 @@
+digraph g {
+    label="Preperation of ML input"
+    labelloc="t"
+    graph [fontname = "helvetica"; fontsize = 18];
+    node [fontname = "helvetica"; fontsize = 14];
+    edge [fontname = "helvetica", fontcolor=dimgray; fontsize = 10];
+
+    Chicken_Tissues
+    RNAseq,   bam_alignment,
+    Protein_MS
+
+    Reconstruction_gtf
+    Protein_seq_gtf
+    lncRNAs_gtf, LNCRNAs_bed
+    PEPTIDES_bed
+
+    //graph
+    Chicken_Tissues -> RNAseq
+    RNAseq -> bam_alignment [label="map (HiSat2, v5.0)"]
+    bam_alignment -> Reconstruction_gtf [label ="stringtie"]
+
+    /* OLD
+    // Reconstruction_gtf -> annotated_gtf  [label ="cuffcompare, 10 CC"]
+    // annotated_gtf-> filter_1_gtf [label ="keep CC: u, i, o and x"]
+    // filter_1_gtf -> lncRNAs_1_gtf [label ="Keep RNA >200 bp,\nTrash ORF >100 AA, high CPC"]
+    // lncRNAs_1_gtf -> LNCRNAs_1_bed [label ="gtf to bed"]
+    */
+
+    // To keep
+    Reconstruction_gtf -> filtered_gtf [label ="Keep RNA >200 bp"]
+    filtered_gtf -> lncRNAs_gtf [label ="Trash known chicken proteins"]
+    lncRNAs_gtf -> LNCRNAs_bed [label ="gtf to bed"]
+
+    Chicken_Tissues -> Protein_MS
+    Protein_MS -> Protein_seq_gtf [label="Map proteins to DNA"]
+    Protein_seq_gtf -> PEPTIDES_bed [label ="gtf to bed"]
+
+    LNCRNAs_bed -> ML_INPUT [label = "intersection"]
+    PEPTIDES_bed -> ML_INPUT [label = "intersection"]
+
+    {rank = same; LNCRNAs_bed; PEPTIDES_bed}
+    //{rank = same; B; D; Y;}
+
+    }
