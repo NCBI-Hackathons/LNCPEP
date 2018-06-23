@@ -1,7 +1,7 @@
 # TUCP-LNCer:
 
 [other suggestions: TU-CuP LiNC, sounds similar to bioinfo utility cufflinks]
-'TUCP-LNCer' is a machine learning approach to identify long noncoding RNAs that has a potential to encode micropeptides. 
+'TUCP-LNCer' is a machine learning approach to identify long noncoding RNAs that encode micropeptides.
 
 ## Abstract
 Long noncoding RNAs (lncRNAs) are a diverse class of RNAs that have a length of at least 200 nucleotides, and although transcribed from DNA, they are not translated into proteins (or lack an open reading frame of >100 amino acids). Several lncRNAs have been proven to be essential for life, including the ribosomal RNA for protein synthesis, the telomerase RNA in protecting chromosomal ends during mitosis and *Xist* in X-chromosome inactivation in mammalian females. Although categorized as non-protein coding, recent studies have demonstrated that small peptides, known as micropeptides, can be concealed within lncRNA transcripts. LncRNAs containing these micropeptides have been described as Transcripts of Uncertain Coding Potential (TUCP). These micropeptides remained largely undetected in earlier computational analyses due to their short size and non-cononical start sites. However, a micropeptide as short as 11 amino acids, named **torsal-less**, was found to be important for leg development in fruit fly. Additionally, functionally relevant micropeptides have been discovered in human, mouse and chicken. These recent findings raise an important question: are lncRNAs just protein-coding genes that defy traditional concepts of a being protein, such as being at least 100 amino acids in length and evolutionary conservation, that were used in early computational analyses? Here, in this work we aim to identify micropeptides from 'omic' datasets using using a Machine Learning (ML) approach. We have extensively profiled the lncRNA transcriptome in 13 matched, chicken male and female tissues for which RNA-Seq data and protein data is publicaly available using two different pipelines - RMTA () and Evolinc (Ref) and RMTA and a modified EvoTuc (). To emphasize on the discovery of novel micropeptides, we trained the ML algorithm on the publically available 'chickpress' dataset (http://geneatlas.arl.arizona.edu/) that contains mass spectrometry (MS) data and we excluded RNAs that map to known proteins in chicken, and trained ML algorithm on the proteins that overalap with the lncRNAs detected from RNASeq dataset.
@@ -98,6 +98,8 @@ https://docs.google.com/spreadsheets/d/1aqINk-C1tgVPTUMGZFKQanBXSp_GVIyM7hxrdhtB
 - [CPC2: a fast and accurate coding potential calculator based on sequence intrinsic features](https://academic.oup.com/nar/article/45/W1/W12/3831091)
 - [ENCODE Project Consortium 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3439153/)
 - [Evolinc: A Tool for the Identification and Evolutionary Comparison of Long Intergenic Non-coding RNAs](https://www.frontiersin.org/articles/10.3389/fgene.2017.00052/full)
+- [Gallus gallus reference proteome](http://www.uniprot.org/proteomes/UP000000539)
 - [Iyer et al. 2015](https://doi.org/10.1038/ng.3192)
 - [Pueyo and Couso 2008](https://www.sciencedirect.com/science/article/pii/S0012160608011597?via%3Dihub)
 - [Rinn and Chang 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3858397/)
+
