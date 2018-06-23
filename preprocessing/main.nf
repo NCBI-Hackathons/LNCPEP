@@ -1,12 +1,46 @@
 params.sraFile = "sra.tsv"
 params.refFasta = "${params.ref_dir}/Gallus_gallus-5.0_genomic.fasta"
 params.refAnno = "${params.ref_dir}/Gallus_gallus-5.0_genomic_cleaned.gff"
+params.proteomeFastaGz = "${params.ref_dir}/uniprot-proteome_gallus_gallus_AUP000000539.fasta.gz"
+params.blast_index_basename = "blast.uniprot-chicken"
 
 Channel.fromPath(params.refFasta).set { refFasta }
 Channel.fromPath(params.refAnno).set { refAnno }
+Channel.fromPath(params.proteomeFastaGz).set { proteomeFastaGz }
 Channel.fromPath(params.sraFile)
         .splitCsv(sep: '\t') // [SRR924485, male, adipose]
         .set { sra_samples }
+
+process unzip_proteomeFastaGz {
+    storeDir "${params.ref_dir}"
+
+    input:
+    file(fastaGz) from proteomeFastaGz
+
+    output:
+    file("${output_fasta}") into proteomeFasta
+
+    script:
+    output_fasta = "${fastaGz}".replaceFirst(/.gz$/, "")
+    """
+    gunzip -c "${fastaGz}" > "${output_fasta}"
+    """
+}
+
+process blast_index {
+    storeDir "${params.ref_dir}"
+
+    input:
+    file(fasta) from proteomeFasta
+
+    output:
+    file("${params.blast_index_basename}*") into blast_index_files
+
+    script:
+    """
+    makeblastdb -in "${fasta}" -dbtype prot -out "${params.blast_index_basename}"
+    """
+}
 
 process index_ref {
     storeDir "${params.ref_dir}"
@@ -45,7 +79,6 @@ process align {
     -p \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}} | \
     samtools view -Sbo ${output_bam} -
     """
-    // --rna-strandness $lib_type -5 $five_trim -3 $three_trim --min-intronlen $min_intl --max-intronlen $max_intl --dta --phred33
 }
 
 process sort {
@@ -131,37 +164,61 @@ process extract_fasta {
     prefix = "${sraID}.${tissue}.${sex}"
     output_fasta = "${prefix}.fasta"
     """
-    gffread -w "${output_fasta}" -g "${ref_fasta}"
+    gffread "${gtf}" -w "${output_fasta}" -g "${ref_fasta}"
     """
 }
-// cut -f 9 $file | tr ";" "\n" | grep transcript | sed 's/^ //g' | cut -d " " -f 2 | grep -Ff - "$file" | gffread -w "${new}".fa -g "$referencegenome" - && python get_gene_length_filter.py "${new}".fa "${new}".putative_genes.fa && sed -i 's/ .*//' "${new}".putative_genes.fa
-// get_gene_length_filter.py
-#!/usr/bin/env python
-//
-// import sys
-//
-// infile = sys.argv[1] # input file
-// outfile = sys.argv[2] # output file
-//
-// genes = {} # empty list
-//
-// with open(infile, "rU") as fh_in:
-// 	for line in fh_in:
-// 		line = line.strip()
-// 		if line[0] == ">":
-// 			gene_names = line
-// 			genes[gene_names] = ''
-// 		else:
-// 			genes[gene_names]+=line
-//
-// for (name,val) in genes.items():
-//     val = len(val)
-//     with open(outfile, "a") as fh_out:
-//         if val > 200:
-//             fh_out.write(name)
-//             fh_out.write("\n")
-//             fh_out.write(genes[name])
-//             fh_out.write("\n")
+
+process filter_fasta {
+    tag "${prefix}"
+    publishDir "${params.output_dir}"
+
+    input:
+    set val(sraID), val(sex), val(tissue), file(fasta) from extracted_fastas
+
+    output:
+    set val(sraID), val(sex), val(tissue), file("${output_fasta}") into filtered_fastas
+
+    script:
+    prefix = "${sraID}.${tissue}.${sex}"
+    output_fasta = "${prefix}.filtered.fasta"
+    """
+    #!/usr/bin/env python
+    from Bio import SeqIO
+
+    input_fasta = "${fasta}"
+    output_fasta = "${output_fasta}"
+
+    def filter_fasta(input_fasta, seq_len = 200):
+        '''
+        Emit only .fasta records with a sequence length greater than the limit
+        '''
+        with open(input_fasta, "rU") as fasta_in:
+            for record in SeqIO.parse(fasta_in, "fasta"):
+                if len(record.seq) > seq_len:
+                    yield(record)
+
+    SeqIO.write(filter_fasta(input_fasta = input_fasta), output_fasta, "fasta")
+    """
+}
+
+blast_index_files.toList().set { blast_index_list }
+process query {
+    tag "${prefix}"
+    publishDir "${params.output_dir}"
+
+    input:
+    set val(sraID), val(sex), val(tissue), file(fasta), file(blast_indexes: "*") from filtered_fastas.combine(blast_index_list)
+
+    script:
+    prefix = "${sraID}.${tissue}.${sex}"
+    output_blast = "${prefix}.blast.genes.txt"
+    """
+    echo "threads: \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}}"
+
+    blastx -query "${fasta}" -db "${params.blast_index_basename}" -outfmt 6 -max_target_seqs 1 -out "${output_blast}" -num_threads \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}}
+    """
+    // blastx -query "${new}".putative_genes.fa -db uniprot-chicken -outfmt 6 -max_target_seqs 1 -out "${new}".putative_genes.txt -num_threads 10
+}
 
 
 // bedtools intersect -wa -c -a SRR924202.bed -b chickspress_peptides.bed > srr924202_new_screen_intersect.txt
