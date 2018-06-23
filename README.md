@@ -1,5 +1,5 @@
-# TUPA LINCer: 
-'TUPA LINCer' is a machine learning approach to identify  long noncoding RNAs that has a potential to encode micropeptides. 
+# TUCPa LINCer: 
+'TUCPa LINCer' is a machine learning approach to identify  long noncoding RNAs that has a potential to encode micropeptides. 
 
 Long noncoding RNAs (lncRNAs) are RNAs of at least 200 nucleotides in length produced from the parts of the DNA that traditionally do not make proteins. While not being fully translated, some lncRNAs do contain short open reading frames and are translated into short peptides known as micropeptides. Due to their short size, micropeptides remained largely undetected in earlier computational analyses. However, a micropeptide as short as 11 amino acids, named torsal-less, was found was found to impact leg development in fruit fly. Additionally, functionally relevant micropeptides have been discovered in human, mouse and chicken. These recent findings raise an important question: are lncRNAs just protein-coding genes that defy traditional concepts of a being protein, such as being at least 100 amino acids in length and evolutionary conservation, that were used in early computational analyses? 
 
