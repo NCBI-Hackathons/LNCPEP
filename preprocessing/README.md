@@ -31,13 +31,13 @@ make run
 
 # Data Reqiurements
 
-- reference genome .fasta
+- reference genome .fasta (e.g. `Gallus_gallus-5.0_genomic.fasta`)
 
-- reference genome annotations .gff
+- reference genome annotations .gff (e.g. `Gallus_gallus-5.0_genomic_cleaned.gff`)
 
-- reference proteome .fasta
+- reference proteome .fasta (e.g. `uniprot-proteome_gallus_gallus_AUP000000539.fasta`)
 
-- SRA identifier for research sample(s)
+- SRA identifier for research sample(s) (e.g. `sra.tsv`)
 
 # Workflow Description
 
