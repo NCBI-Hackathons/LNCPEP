@@ -1,0 +1,29 @@
+digraph g {
+    label="Train XGBClassifier"
+    labelloc="t"
+    graph [fontname = "helvetica"; fontsize = 18];
+    node [fontname = "helvetica"; fontsize = 14];
+    edge [fontname = "helvetica", fontcolor=dimgray; fontsize = 10];
+
+    // DEFINE NODES
+    ML_INPUT
+    fetch_full_ref_transcripts
+    Intersect_labels
+    Train
+    Test
+    kmer_featurization
+
+
+    // GRAPHS
+    ML_INPUT -> fetch_full_ref_transcripts
+    Intersect_labels
+    fetch_full_ref_transcripts -> kmer_featurization
+    kmer_featurization -> Train [label ="60%\nk = 2, 3 and 4\nnon-overlapping sliding windows"]
+    Intersect_labels -> Train
+
+    kmer_featurization -> Test [label ="40%"]
+
+    {rank = same; ML_INPUT; Intersect_labels}
+    //{rank = same; B; D; Y;}
+
+    }
