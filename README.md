@@ -1,6 +1,6 @@
-# LNC-PEP:
+# LNCPEP:
 
-LNC-PEP is a machine learning approach to identify long noncoding RNAs that encode micropeptides.
+LNCPEP is a machine learning approach to identify long noncoding RNAs that encode micropeptides.
 <img width="380" alt="lncpepe_logo" src="https://user-images.githubusercontent.com/1639442/41813682-e0dd0fa2-76f7-11e8-83a2-5d81cefab59e.png">
 
 
@@ -14,11 +14,6 @@ Noncoding RNAs are broadly classified into two categories based on their size: s
 
 ## Why should we solve it?
 Identification of lncRNAs that produce micropeptides will have several advantages. First, the human genome is estimated to house roughly 55,000 lncRNAs, which greatly exceeds the number of protein-coding genes of around 20,000 (Iyer et al. 2015). Despite the large number of lncRNAs discovered rapidly, there is currently insufficient data to comprehend their biological role, devise a classification scheme and  investigate their functions systematically. A subset of lncRNAs that could partially work as micropeptides will immediately allow dissection of their functions using the existing toolset of molecular biology. Furthermore, a list of legitimate micropeptides, as validated by functional assays, might prove to be essential for an improved understanding of the living systems as well as treatment of diseases. The clinical potential of novel micropeptides is immense, ranging from development of novel diagnostic tests, drugs or even vaccines to precision medicine for effective management of patients.
-
-# Optional things
-- Please cite our work -- here is the ICMJE Standard Citation:
-- ...and a link to the DOI:
-- Awesome Logo
 
 ## Sequence featurization
 
