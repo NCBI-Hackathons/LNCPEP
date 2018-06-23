@@ -2,7 +2,7 @@ SHELL:=/bin/bash
 MINICONDA_sh:=Miniconda3-4.4.10-Linux-x86_64.sh
 MINICONDA_sh_url:=https://repo.continuum.io/miniconda/$(MINICONDA_sh)
 # MINICONDA_sh_md5:=
-CONDA_INSTALL_DIR:=$(shell echo '$$HOME')/conda
+CONDA_INSTALL_DIR:=$(shell echo '$$HOME')/conda-LNCPEP
 CONDA_ACTIVATE:=$(CONDA_INSTALL_DIR)/bin/activate
 VAR:=
 .PHONY: $(VAR)
