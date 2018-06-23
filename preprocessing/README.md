@@ -1,6 +1,6 @@
-# Preprocessing Workflow
+# Fastlnc: Preprocessing Workflow
 
-Data workflow for generating lincRNA's to use for training
+Workflow for generating lincRNA data to use for training the machine learning model.
 
 # Installation
 
@@ -16,13 +16,20 @@ Download reference data
 make ref
 ```
 
+Build `preprocessing` Docker container
+
+```
+cd ../containers
+make test VAR=preprocessing
+```
+
 # Run
 
 ```
 make run
 ```
 
-# Reqiurements
+# Data Reqiurements
 
 - reference genome .fasta
 
@@ -32,7 +39,7 @@ make run
 
 - SRA identifier for research sample(s)
 
-# Workflow
+# Workflow Description
 
 Processing steps that will be performed by the Nextflow pipeline
 
@@ -41,6 +48,8 @@ Processing steps that will be performed by the Nextflow pipeline
 - create HiSat2 indexes for reference genome fasta
 
 - create BLAST databases & indexes for proteome fasta
+
+## Analysis Steps
 
 - align SRA reads with `hisat2`
 
@@ -56,4 +65,4 @@ Processing steps that will be performed by the Nextflow pipeline
 
 - query transcript fasta sequences against proteome database with `blastx` to identify protein coding transcripts
 
-- 
+-
