@@ -30,6 +30,10 @@ Training data can be (re)generated with the included Fastlnc pipeline (`preproce
 Input file with coordinates/sequences of putative lncRNA transcripts to search for TUCP's/micropeptides.
 ![''](https://github.com/NCBI-Hackathons/ncRNA_ML_Features/blob/master/flowchart/training_ML1.png)
 
+## Sample Result
+
+<img width="380" alt="orf_overlay" src="overlay_orfs.png">
+
 ## Software Setup
 
 Build Docker containers
