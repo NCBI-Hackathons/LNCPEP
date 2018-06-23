@@ -1,7 +1,7 @@
 # `make build VAR=python3`
 # `make test VAR=python3`
 VAR=
-REPO:=ncbi/tupac-lncur
+REPO:=ncbi/lncpep
 .PHONY: $(VAR)
 none:
 
