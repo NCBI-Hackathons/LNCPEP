@@ -2,14 +2,21 @@ params.sraFile = "sra.tsv"
 params.refFasta = "${params.ref_dir}/Gallus_gallus-5.0_genomic.fasta"
 params.refAnno = "${params.ref_dir}/Gallus_gallus-5.0_genomic_cleaned.gff"
 params.proteomeFastaGz = "${params.ref_dir}/uniprot-proteome_gallus_gallus_AUP000000539.fasta.gz"
+// http://www.uniprot.org/uniprot/?query=gallus+gallus&sort=score
+// http://www.uniprot.org/help/programmatic_access
 params.blast_index_basename = "blast.uniprot-chicken"
 
 Channel.fromPath(params.refFasta).set { refFasta }
 Channel.fromPath(params.refAnno).set { refAnno }
 Channel.fromPath(params.proteomeFastaGz).set { proteomeFastaGz }
-Channel.fromPath(params.sraFile)
-        .splitCsv(sep: '\t') // [SRR924485, male, adipose]
-        .set { sra_samples }
+// Channel.fromPath(params.sraFile)
+//         .splitCsv(sep: '\t') // [SRR924485, male, adipose]
+//         .set { sra_samples }
+Channel.from([
+    ["SRR924485", "male", "adipose"],
+    ["SRR924539", "female", "adipose"]
+    ])
+    .set { sra_samples }
 
 process unzip_proteomeFastaGz {
     storeDir "${params.ref_dir}"
@@ -222,3 +229,13 @@ process query {
 
 
 // bedtools intersect -wa -c -a SRR924202.bed -b chickspress_peptides.bed > srr924202_new_screen_intersect.txt
+// cut -f 1 SRR924485.putative_genes.txt | sort | uniq > SRR924485.putative_genes.txt.uniq.genes
+// grep ">" SRR924485.putative_genes.fa | sed 's/>//g' | sort | uniq > SRR924485.putative_genes.fa.genes
+// diff SRR924485.putative_genes.txt.uniq.genes SRR924485.putative_genes.fa.genes | grep ">" | sed 's/>//g' | sed 's/ //g' | sort | uniq > SRR924485.diff.genes
+// grep -f SRR924485.diff.genes SRR924485.combined.gtf > SRR924485.combined.lincs.gtf
+// cut -f 1 SRR924539.putative_genes.txt | sort | uniq > SRR924539.putative_genes.txt.uniq.genes
+// grep ">" SRR924539.putative_genes.fa | sed 's/>//g' | sort | uniq > SRR924539.putative_genes.fa.genes
+// diff SRR924539.putative_genes.txt.uniq.genes SRR924539.putative_genes.fa.genes | grep ">" | sed 's/>//g' | sed 's/ //g' | sort | uniq > SRR924539.diff.genes
+// grep -f SRR924539.diff.genes SRR924539.combined.gtf > SRR924539.combined.lincs.gtf
+// cat SRR924485.combined.lincs.gtf SRR924539.combined.lincs.gtf > Adipose_linc.gtf
+// gtf2bed < Adipose_linc.gtf > Adipose_linc.bed

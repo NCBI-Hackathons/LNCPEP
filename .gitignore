@@ -28,3 +28,4 @@ preprocessing/output/
 preprocessing/trace.txt*
 preprocessing/timeline-report.html*
 preprocessing/nextflow-report.html*
+preprocessing/test/
