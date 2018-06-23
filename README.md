@@ -98,6 +98,8 @@ https://docs.google.com/spreadsheets/d/1aqINk-C1tgVPTUMGZFKQanBXSp_GVIyM7hxrdhtB
 - [CPC2: a fast and accurate coding potential calculator based on sequence intrinsic features](https://academic.oup.com/nar/article/45/W1/W12/3831091)
 - [ENCODE Project Consortium 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3439153/)
 - [Evolinc: A Tool for the Identification and Evolutionary Comparison of Long Intergenic Non-coding RNAs](https://www.frontiersin.org/articles/10.3389/fgene.2017.00052/full)
+- [Gallus gallus reference proteome](http://www.uniprot.org/proteomes/UP000000539)
 - [Iyer et al. 2015](https://doi.org/10.1038/ng.3192)
 - [Pueyo and Couso 2008](https://www.sciencedirect.com/science/article/pii/S0012160608011597?via%3Dihub)
 - [Rinn and Chang 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3858397/)
+
