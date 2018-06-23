@@ -15,7 +15,7 @@ Here, we aim to identify micropeptides from 'omic' datasets using using machine 
 # How to use this software
 _*To be filled by computer wizards*_
 # Software Workflow Diagram
-![alt text](flowcharts/jay_flow1.png)
+![alt text](https://github.com/NCBI-Hackathons/ncRNA_ML_Features/flowcharts/jay_flow1.png)
 
 # File structure diagram
 #### _Define paths, variable names, etc_
