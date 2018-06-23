@@ -1,9 +1,10 @@
-# Awesome Name: 
-'Awesome name' is a machine learning approach to identify  long noncoding RNAs that has a potential to encode micropeptides. 
+# TUPA LINCer: 
+'TUPA LINCer' is a machine learning approach to identify  long noncoding RNAs that has a potential to encode micropeptides. 
 
-Long noncoding RNAs (lncRNAs) are RNAs of at least 200 nucleotides in length produced from the parts of the DNA that traditionally do not make proteins, yet play an important role in normal physiology and diseases. While not being fully translated, some lncRNAs do contain short open reading frames that are translated into short peptides known as micropeptides. Due to their short size, micropeptides remained largely undetected in earlier computational analyses. So far, micropeptides have been discovered in human, mouse, chicken and fruit fly, but their role in biological processes remain underappreciated. 
+Long noncoding RNAs (lncRNAs) are RNAs of at least 200 nucleotides in length produced from the parts of the DNA that traditionally do not make proteins. While not being fully translated, some lncRNAs do contain short open reading frames and are translated into short peptides known as micropeptides. Due to their short size, micropeptides remained largely undetected in earlier computational analyses. A micropeptide as short as 11 amino acids, named torsal-less, was found was found to impact leg development in fruit fly. Additionally, functionally relevant micropeptides have been discovered in human, mouse and chicken; however, their broader role in biological processes remains largely unknown.
 
-We applied machine learning (ML) algorithm to publically available chickpress dataset (http://geneatlas.arl.arizona.edu/) that contains RNA-seq and mass spectrometry from 13 chicken male and female tissues. 
+Here, we applied machine learning (ML) algorithms to publically available 'chickpress' dataset (http://geneatlas.arl.arizona.edu/) that contains RNA-seq (polyA-selected) and mass spectrometry data from 13 matched, chicken male and female tissues. To emphasize on discovery of novel micropeptides, we excluded RNA that map to known proteins in chicken, and trained ML on the remaining proteins to identity features of the cognate RNA sequence that might result into protein synthesis. 
+
 # Optional things
 - Please cite our work -- here is the ICMJE Standard Citation:
 - ...and a link to the DOI:
