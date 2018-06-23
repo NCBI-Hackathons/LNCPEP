@@ -57,6 +57,10 @@ The Docker image contains <this software> as well as a webserver and FTP server 
 
 ```Examples here```
 
+## Sequence featurization
+
+Non-overlapping subsequences of 100 nt covering the entire length of a lncRNA were featurized using a set of k’s to generate k-mers (we used [k = 2,3 and 4]). For each subsequence, compute the k-mer usage frequencies for each value of k, include unused k-mers (with frequency = 0) in order to ensure equal length outputs. Concatenate these k-mer usage frequencies into a single vector representing the subsequence.
+
 ## Testing
 
 We tested four different tools with <this software>. They can be found in [server/tools/](server/tools/) .
