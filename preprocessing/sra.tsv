@@ -1,24 +1,25 @@
-SRR924485	male_adipose
-SRR924539	female_adipose
-SRR924540	male_cerebellum
-SRR924567	female_parietalnerve
-SRR924570	male_proventriculus
-SRR924573	female_proventriculus
-SRR924541	female_cerebellum
-SRR924542	male_cerebrum
-SRR924546	female_cerebrum
-SRR924547	male_testis
-SRR924548	female_ovary
-SRR924549	male_heart
-SRR924550	female_heart
-SRR924551	male_hypothalamus
-SRR924552	female_hypothalamus
-SRR924553	male_kidney
-SRR924554	female_kidney
-SRR924555	male_liver
-SRR924556	female_liver
-SRR924557	male_lung
-SRR924558	female_lung
-SRR924559	male_breast
-SRR924561	female_breast
-SRR924564	male_parietalnerve
+RR924485	male	adipose
+SRR924539	female	adipose
+SRR924540	male	cerebellum
+SRR924567	female	parietalnerve
+SRR924570	male	proventriculus
+SRR924573	female	proventriculus
+SRR924541	female	cerebellum
+SRR924542	male	cerebrum
+SRR924546	female	cerebrum
+SRR924547	male	testis
+SRR924548	female	ovary
+SRR924549	male	heart
+SRR924550	female	heart
+SRR924551	male	hypothalamus
+SRR924552	female	hypothalamus
+SRR924553	male	kidney
+SRR924554	female	kidney
+SRR924555	male	liver
+SRR924556	female	liver
+SRR924557	male	lung
+SRR924558	female	lung
+SRR924559	male	breast
+SRR924561	female	breast
+SRR924564	male	parietalnerve
+

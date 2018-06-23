@@ -15,7 +15,7 @@ ref: install
 
 # ~~~~~ RUN PIPELINE ~~~~~ #
 run: install
-	./nextflow run main.nf -profile main -resume -with-dag flowchart.dot $(EP)
+	./nextflow run main.nf -with-timeline -with-trace -with-report -profile main -resume -with-dag flowchart.dot $(EP)
 
 flowchart:
 	[ -f flowchart.dot ] && dot flowchart.dot -Tpng -o flowchart.png

@@ -23,3 +23,5 @@ test.nf
 preprocessing/ref/
 preprocessing/bin/
 preprocessing/flowchart.dot*
+preprocessing/trace.txt
+preprocessing/output/
