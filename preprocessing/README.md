@@ -1,6 +1,6 @@
 # Fastlnc: Preprocessing Workflow
 
-Workflow for generating lincRNA data to use for training the machine learning model.
+Workflow for identifying lincRNA data to use for training the machine learning model.
 
 # Installation
 
