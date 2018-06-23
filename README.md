@@ -46,8 +46,7 @@ make build VAR=main
 - Java 8 (for Nextflow pipelines)
 
 # References & Resources
-(in alphabetical order; see gSheets for sorting etc, then paste in the end)
-https://docs.google.com/spreadsheets/d/1aqINk-C1tgVPTUMGZFKQanBXSp_GVIyM7hxrdhtBeMI/edit?usp=sharing
+(in alphabetical order; [see gSheets for sorting etc] (https://docs.google.com/spreadsheets/d/1aqINk-C1tgVPTUMGZFKQanBXSp_GVIyM7hxrdhtBeMI/edit?usp=sharing))
 
 
 - [Anderson et al. 2015](http://science.sciencemag.org/content/351/6270/271)
