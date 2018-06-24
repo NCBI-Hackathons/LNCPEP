@@ -64,9 +64,9 @@ process index_ref {
 
     script:
     """
-    echo "threads: \${NSLOTS:-\${threadsXL:-\${NTHREADS:-1}}}"
+    echo "threads: \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}}"
 
-    hisat2-build "${fasta}" "${fasta}" -p \${NSLOTS:-\${threadsXL:-\${NTHREADS:-1}}}
+    hisat2-build "${fasta}" "${fasta}" -p \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}}
     """
 }
 
@@ -83,11 +83,11 @@ process align {
     prefix = "${sraID}.${tissue}.${sex}"
     output_bam = "${prefix}.bam"
     """
-    echo "threads: \${NSLOTS:-\${threadsBig:-\${NTHREADS:-1}}}"
+    echo "threads: \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}}"
 
     hisat2 -x ${ref_fasta} \
     --sra-acc ${sraID} \
-    -p \${NSLOTS:-\${threadsBig:-\${NTHREADS:-1}}} | \
+    -p \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}} | \
     samtools view -Sbo ${output_bam} -
     """
 }
@@ -227,9 +227,9 @@ process query {
     prefix = "${sraID}.${tissue}.${sex}"
     output_blast = "${prefix}.blast.genes.txt"
     """
-    echo "threads: \${NSLOTS:-\${threadsBig:-\${NTHREADS:-1}}}"
+    echo "threads: \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}}"
 
-    blastx -query "${fasta}" -db "${params.blast_index_basename}" -outfmt 6 -max_target_seqs 1 -out "${output_blast}" -num_threads \${NSLOTS:-\${threadsBig:-\${NTHREADS:-1}}}
+    blastx -query "${fasta}" -db "${params.blast_index_basename}" -outfmt 6 -max_target_seqs 1 -out "${output_blast}" -num_threads \${NSLOTS:-\${threadsMid:-\${NTHREADS:-1}}}
     """
 }
 
