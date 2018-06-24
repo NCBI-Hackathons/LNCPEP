@@ -94,7 +94,7 @@ process align {
 
 process sort {
     tag "${prefix}"
-    publishDir "${params.output_dir}/alignments"
+    publishDir "${params.output_dir}"
 
     input:
     set val(sraID), val(sex), val(tissue), file(bam) from aligned_bams
